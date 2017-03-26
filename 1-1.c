@@ -4,7 +4,7 @@
  * get.
  */
 
-/* 
+/*
  * 1-1.c: In function ‘main’:
  * 1-1.c:11:6: warning: incompatible implicit declaration of built-in function ‘printf’
  *       printf("hello, world\n");
@@ -32,15 +32,15 @@ int main()
  */
 {
 
-     /*
-      * No error messages from leaving out this line
-      */
-     printf("hello, world\n");
+    /*
+     * No error messages from leaving out this line
+     */
+    printf("hello, world\n");
 
-/* 
- *1-1.c: In function ‘main’:
- * 1-1.c:38:6: error: expected declaration or statement at end of input
- *       printf("hello, world\n");
- *       ^
- */
+    /*
+     *1-1.c: In function ‘main’:
+     * 1-1.c:38:6: error: expected declaration or statement at end of input
+     *       printf("hello, world\n");
+     *       ^
+     */
 }

@@ -13,75 +13,75 @@
 /* count lines, words, and characters in input */
 int main()
 {
-     int c, state, current_word_len;
-     int histogram[MAXWORDSIZE+1];
+    int c, state, current_word_len;
+    int histogram[MAXWORDSIZE+1];
 
-     for (int i = 0; i < MAXWORDSIZE+1; ++i) {
-	  histogram[i] = 0;
-     }
+    for (int i = 0; i < MAXWORDSIZE+1; ++i) {
+        histogram[i] = 0;
+    }
 
-     state = OUT;
-     current_word_len = 0;
-     while ((c = getchar()) != EOF) {
-	  if (c == ' ' || c == '\n' || c == '\t') {
-	       state = OUT;
-	       ++histogram[current_word_len];
-	       current_word_len = 0;
-	  }
-	  
-	  else if (state == OUT)
-	       state = IN;
+    state = OUT;
+    current_word_len = 0;
+    while ((c = getchar()) != EOF) {
+        if (c == ' ' || c == '\n' || c == '\t') {
+            state = OUT;
+            ++histogram[current_word_len];
+            current_word_len = 0;
+        }
 
-	  if (state == IN) {
-	       ++current_word_len;
-	  }
-     }
+        else if (state == OUT)
+            state = IN;
 
-     /* figure out where to reasonably end the histogram */
-     int last;
-     last = MAXWORDSIZE+1 + 1;
-     while (histogram[--last] == 0)
-	  ;
-     
-     for (int i = 0; i <= last; ++i) {
-	  printf("%2d: ", i);
+        if (state == IN) {
+            ++current_word_len;
+        }
+    }
 
-	  for (int j = 0; j < histogram[i]; ++j)
-	       putchar('*');
+    /* figure out where to reasonably end the histogram */
+    int last;
+    last = MAXWORDSIZE+1 + 1;
+    while (histogram[--last] == 0)
+        ;
 
-	  putchar('\n');
-     }
+    for (int i = 0; i <= last; ++i) {
+        printf("%2d: ", i);
 
-     putchar('\n');
+        for (int j = 0; j < histogram[i]; ++j)
+            putchar('*');
 
-     /*
-      * Print vertically 
-      */
+        putchar('\n');
+    }
 
-     /* figure out the max element */
-     int max = 0;
-     for (int i = 0; i <= last; ++i)
-	  if (histogram[i] > max)
-	       max = histogram[i];
+    putchar('\n');
 
-     /* print the histogram from the top down, so the most common
-      * items will show up first */
-     /* max and c are reused because why waste memory? */
-     for (; max > 0; --max) {
-	  for (int i = 0; i <= last; ++i) {
-	       c = ' ';
-	  
-	       if (histogram[i] >= max)
-		    c = '*';
-	       
-	       printf("  %c ", c);
-	  }
+    /*
+     * Print vertically
+     */
 
-	  putchar('\n');
-     }
+    /* figure out the max element */
+    int max = 0;
+    for (int i = 0; i <= last; ++i)
+        if (histogram[i] > max)
+            max = histogram[i];
 
-     for (int i = 0; i <= last; ++i)
-	  printf("[%2d]", i);
+    /* print the histogram from the top down, so the most common
+     * items will show up first */
+    /* max and c are reused because why waste memory? */
+    for (; max > 0; --max) {
+        for (int i = 0; i <= last; ++i) {
+            c = ' ';
 
-     putchar('\n');
+            if (histogram[i] >= max)
+                c = '*';
+
+            printf("  %c ", c);
+        }
+
+        putchar('\n');
+    }
+
+    for (int i = 0; i <= last; ++i)
+        printf("[%2d]", i);
+
+    putchar('\n');
 }

@@ -6,5 +6,5 @@
 
 int main()
 {
-     printf("EOF: %d\n", EOF);	/* -1 on my machine */
+    printf("EOF: %d\n", EOF);	/* -1 on my machine */
 }

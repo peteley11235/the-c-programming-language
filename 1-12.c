@@ -6,22 +6,22 @@
 
 int main()
 {
-     int c;
+    int c;
 
-     while ((c = getchar()) != EOF) {
+    while ((c = getchar()) != EOF) {
 
-	  if (c == ' ' || c == '\t' || c == '\n') {
+        if (c == ' ' || c == '\t' || c == '\n') {
 
-	       putchar('\n');
+            putchar('\n');
 
-	       /* skip whitespace and get to the next word */
-	       while ((c = getchar()) != EOF
-		      && (c == ' '
-			  || c == '\t'
-			  || c == '\n'))
-		    ;
-	  }
+            /* skip whitespace and get to the next word */
+            while ((c = getchar()) != EOF
+                    && (c == ' '
+                        || c == '\t'
+                        || c == '\n'))
+                ;
+        }
 
-	  putchar(c);
-     }
+        putchar(c);
+    }
 }

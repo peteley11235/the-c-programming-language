@@ -6,15 +6,13 @@
 
 int main()
 {
-     int c, char_test;
+    int c, char_test;
 
-     while (char_test = ((c = getchar()) != EOF))
-     {
-	  if (char_test != 0
-	      && char_test != 1)
-	  {
-	       /* does not print */
-	       printf("If this prints, you have not verified it.");
-	  }
-     }
+    while (char_test = ((c = getchar()) != EOF)) {
+        if (char_test != 0
+                && char_test != 1) {
+            /* does not print */
+            printf("If this prints, you have not verified it.");
+        }
+    }
 }
