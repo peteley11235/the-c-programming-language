@@ -34,7 +34,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 int getline(char line[], int limit);
 void copy(char to[], char from[]);
 
-/* pring longest input line */
+/* print longest input line */
 int main()
 {
     int len;			/* current line length */
